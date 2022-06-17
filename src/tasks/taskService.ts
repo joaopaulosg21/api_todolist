@@ -15,4 +15,17 @@ export class TaskService {
             return {status:500,msg:`${error}`};
         }
     }
+
+    public async getTaskByTitle(taskTitle:string):Promise<Object>{
+        try{
+            const task = await this.taskRepository.getTaskByTitle(taskTitle);
+            if(task){
+                return {status:200,msg:task};
+            }else{
+                return {status:404,msg:"Task não existe!"};
+            }
+        }catch(error){
+            return {status:500,msg:`${error}`};
+        }
+    }
 }

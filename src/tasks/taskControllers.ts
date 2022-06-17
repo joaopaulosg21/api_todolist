@@ -10,4 +10,10 @@ export class TaskController {
         const response:any = await taskService.newTask(task);
         return res.status(response.status).json({msg:response.msg});
     }
+
+    async getTaskByTitleRoute(req:Request,res:Response):Promise<Response>{
+        const taskTitle:string = req.params.taskTitle;
+        const response:any = await taskService.getTaskByTitle(taskTitle);
+        return res.status(response.status).json({msg:response.msg});
+    }
 }

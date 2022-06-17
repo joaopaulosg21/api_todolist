@@ -4,5 +4,6 @@ const taskRouter = Router();
 const task = new TaskController();
 
 taskRouter.post("/new",task.newTaskRoute);
+taskRouter.get("/:taskTitle",task.getTaskByTitleRoute);
 
 export {taskRouter};

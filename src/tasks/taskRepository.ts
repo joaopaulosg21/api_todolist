@@ -30,4 +30,14 @@ export class TaskRepository {
         });
     }
     
+    public async finishTask(taskId:number,date:Date):Promise<tasks | null>{
+        return this.model.tasks.update({
+            where:{id:taskId},
+            data:{endedIn:date,status:"concluido"}
+        });
+    }
+
+    public async getTaskById(taskId:number):Promise<tasks | null>{
+        return this.model.tasks.findFirst({where:{id:taskId}});
+    }
 }

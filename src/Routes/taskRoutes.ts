@@ -11,4 +11,6 @@ taskRouter.get("/",task.getAllTasksRoute);
 
 taskRouter.put("/:id/:status",task.updateTaskStatusRoute);
 
+taskRouter.put("/finish/task/:id",task.finishTaskRoute);
+
 export {taskRouter};

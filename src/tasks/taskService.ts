@@ -52,4 +52,19 @@ export class TaskService {
             return {status:500,msg:`${error}`};
         }
     }
+
+    public async finishTask(taskId:number):Promise<Object>{
+        try{
+            const task = await this.taskRepository.getTaskById(taskId);
+            if(task){
+                const date = new Date();
+                await this.taskRepository.finishTask(taskId,date);
+                return {status:200,msg:"Task finalizada"};
+            }else{
+                return {status:404,msg:`Task não existe!`}; 
+            }
+        }catch(error){
+            return {status:500,msg:`${error}`};
+        }
+    }
 }

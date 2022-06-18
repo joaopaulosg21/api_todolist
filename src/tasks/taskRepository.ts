@@ -22,4 +22,12 @@ export class TaskRepository {
     public async getAllTasks():Promise<tasks[]> {
         return this.model.tasks.findMany();
     }
+
+    public async updateTaskStatus(taskId:number,status:string):Promise<tasks | null>{
+        return this.model.tasks.update({
+            where:{id:taskId},
+            data:{status:status}
+        });
+    }
+    
 }

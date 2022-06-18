@@ -23,4 +23,11 @@ describe("Testes para as rotas de task",()=>{
         expect(response.statusCode).toStrictEqual(200);
         expect(response.body.msg.length).toBeGreaterThan(0);
     });
+
+    it("Atualizar status",async()=>{
+        const response = await request(app)
+        .put("/tasks/4/concluido");
+        expect(response.statusCode).toStrictEqual(200);
+        expect(response.body.msg).toEqual("Status da task atualizado!");
+    });
 })

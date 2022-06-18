@@ -21,4 +21,11 @@ export class TaskController {
         const response:any = await taskService.getAllTasks();
         return res.status(response.status).json({msg:response.msg});
     }
+
+    async updateTaskStatusRoute(req:Request,res:Response):Promise<Response>{
+        const taskId:number = Number(req.params.id);
+        const status:string = req.params.status;
+        const response:any = await taskService.updateTaskStatus(taskId,status);
+        return res.status(response.status).json({msg:response.msg});
+    }
 }

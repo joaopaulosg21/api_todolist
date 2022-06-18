@@ -37,4 +37,17 @@ export class TaskService {
             return {status:500,msg:`${error}`};
         }
     }
+
+    public async updateTaskStatus(taskId:number,status:string):Promise<Object>{
+        try{
+            const task = await this.taskRepository.updateTaskStatus(taskId,status);
+            if(task){
+                return {status:200,msg:`Status da task atualizado!`};
+            }else{
+                return {status:404,msg:`Task não existe!`};
+            }
+        }catch(error){
+            return {status:500,msg:`${error}`};
+        }
+    }
 }

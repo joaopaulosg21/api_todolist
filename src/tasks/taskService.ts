@@ -1,3 +1,4 @@
+import { taskValidator } from "../../validators/taskValidator";
 import { TaskRepository } from "./taskRepository";
 import { Itask } from "./types/Itask";
 
@@ -9,6 +10,7 @@ export class TaskService {
 
     public async newTask(task:Itask):Promise<Object>{
         try{
+            await taskValidator(task);
             const newTask = await this.taskRepository.newTask(task);
             return {status:201,msg:`Tarefa '${newTask.title}' adicionada`};
         }catch(error){

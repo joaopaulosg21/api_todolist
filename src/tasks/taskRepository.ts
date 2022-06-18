@@ -18,4 +18,8 @@ export class TaskRepository {
     public async getTaskByTitle(taskTitle:string):Promise<tasks | null>{
         return this.model.tasks.findFirst({where:{title:taskTitle}});
     }
+
+    public async getAllTasks():Promise<tasks[]> {
+        return this.model.tasks.findMany();
+    }
 }

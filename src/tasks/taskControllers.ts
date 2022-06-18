@@ -16,4 +16,9 @@ export class TaskController {
         const response:any = await taskService.getTaskByTitle(taskTitle);
         return res.status(response.status).json({msg:response.msg});
     }
+
+    async getAllTasksRoute(req:Request,res:Response):Promise<Response>{
+        const response:any = await taskService.getAllTasks();
+        return res.status(response.status).json({msg:response.msg});
+    }
 }

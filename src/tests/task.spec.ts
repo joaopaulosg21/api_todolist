@@ -15,5 +15,12 @@ describe("Testes para as rotas de task",()=>{
         .get("/tasks/Teste de adição de task");
         expect(response.statusCode).toStrictEqual(200);
         expect(response.body.msg.title).toEqual("Teste de adição de task")
-    })
+    });
+
+    it("Ver todas as tasks",async()=>{
+        const response = await request(app)
+        .get("/tasks/");
+        expect(response.statusCode).toStrictEqual(200);
+        expect(response.body.msg.length).toBeGreaterThan(0);
+    });
 })

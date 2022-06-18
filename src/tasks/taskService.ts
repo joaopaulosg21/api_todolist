@@ -28,4 +28,13 @@ export class TaskService {
             return {status:500,msg:`${error}`};
         }
     }
+
+    public async getAllTasks():Promise<Object>{
+        try{
+            const tasks = await this.taskRepository.getAllTasks();
+            return {status:200,msg:tasks};
+        }catch(error){
+            return {status:500,msg:`${error}`};
+        }
+    }
 }

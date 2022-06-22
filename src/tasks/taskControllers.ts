@@ -1,4 +1,4 @@
-import { Request,Response } from "express";
+import { query, Request,Response } from "express";
 import { TaskService } from "./taskService";
 import { Itask } from "./types/Itask";
 const taskService = new TaskService();
@@ -18,7 +18,9 @@ export class TaskController {
     }
 
     async getAllTasksRoute(req:Request,res:Response):Promise<Response>{
-        const response:any = await taskService.getAllTasks();
+        const queryValue = req.query;
+        const ordem = req.query.ordem;
+        const response:any = await taskService.getAllTasks(queryValue,ordem?.toString());
         return res.status(response.status).json({msg:response.msg});
     }
 

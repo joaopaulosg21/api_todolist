@@ -23,6 +23,10 @@ export class TaskRepository {
         return this.model.tasks.findMany();
     }
 
+    public async getAllTasksSortByCreatedDate(ordem:any):Promise<tasks[]> {
+        return this.model.tasks.findMany({orderBy:[{createdAt:ordem}]});
+    }
+
     public async updateTaskStatus(taskId:number,status:string):Promise<tasks | null>{
         return this.model.tasks.update({
             where:{id:taskId},

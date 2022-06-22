@@ -31,8 +31,12 @@ export class TaskService {
         }
     }
 
-    public async getAllTasks():Promise<Object>{
+    public async getAllTasks(sort={},ordem=""):Promise<Object>{
         try{
+            if(sort.hasOwnProperty("sortBycreatedDate")){
+                const tasks = await this.taskRepository.getAllTasksSortByCreatedDate(ordem);
+                return {status:200,msg:tasks}
+            }
             const tasks = await this.taskRepository.getAllTasks();
             return {status:200,msg:tasks};
         }catch(error){

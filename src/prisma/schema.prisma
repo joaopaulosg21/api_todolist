@@ -16,4 +16,5 @@ model tasks{
   status String @db.VarChar(255) @default("pendente")
   createdAt DateTime @default(now()) @db.Timestamp(0)
   endedIn DateTime?
+  data_limite DateTime?
 }

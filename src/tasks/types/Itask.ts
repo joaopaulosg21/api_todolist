@@ -3,4 +3,5 @@ export interface Itask{
     title:string;
     status?:string;
     endedIn?:Date;
+    data_limite?:Date;
 }

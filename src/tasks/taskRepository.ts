@@ -10,7 +10,8 @@ export class TaskRepository {
     public async newTask(task:Itask):Promise<tasks>{
         return this.model.tasks.create({
             data:{
-                title:task.title
+                title:task.title,
+                data_limite:task.data_limite
             }
         });
     }

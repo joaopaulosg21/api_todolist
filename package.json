@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build":"tsc",
-    "start": "build/src/app.js"
+    "start": "node build/src/app.js"
   },
   "keywords": [],
   "author": "",

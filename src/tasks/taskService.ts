@@ -71,4 +71,17 @@ export class TaskService {
             return {status:500,msg:`${error}`};
         }
     }
+
+    public async getTaskById(taskId:number):Promise<Object>{
+        try{
+            const task = await this.taskRepository.getTaskById(1);
+            if(task){
+                return {status:200,msg:task};
+            }else{
+                return {status:404,msg:`Task com esse id não existe! `};
+            }
+        }catch(error){
+            return {status:500,msg:`${error}`};
+        }
+    }
 }

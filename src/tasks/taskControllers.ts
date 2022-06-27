@@ -36,4 +36,10 @@ export class TaskController {
         const response:any = await taskService.finishTask(taskId);
         return res.status(response.status).json({msg:response.msg});
     }
+
+    async getTaskByIdRoute(req:Request,res:Response):Promise<Response>{
+        const taskId:number = Number(req.params.id);
+        const response:any = await taskService.getTaskById(taskId);
+        return res.status(response.status).json({msg:response.msg});
+    }
 }

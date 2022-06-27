@@ -7,6 +7,8 @@ taskRouter.post("/new",task.newTaskRoute);
 
 taskRouter.get("/:taskTitle",task.getTaskByTitleRoute);
 
+taskRouter.get("/viewTaskById/:id",task.getTaskByIdRoute);
+
 taskRouter.get("/",task.getAllTasksRoute);
 
 taskRouter.put("/:id/:status",task.updateTaskStatusRoute);
